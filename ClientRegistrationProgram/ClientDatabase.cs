@@ -9,12 +9,12 @@ namespace ClientRegistrationProgram
 {
     public static class ClientDatabase
     {
-        private static string CLIEN_DB_FILE = "Clients.sqlite";
+        private static string CLIENT_DB_FILE = "Clients.sqlite";
         private static string CLIENT_DATA_SOURCE = "Data Source=Clients.sqlite";
 
         public static void Init() 
         {
-            if(!File.Exists(CLIEN_DB_FILE)) {
+            if(!File.Exists(CLIENT_DB_FILE)) {
                 using (var connection = new SqliteConnection(CLIENT_DATA_SOURCE))
                 {
                     connection.Open();
