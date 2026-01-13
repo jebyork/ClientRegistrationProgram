@@ -11,11 +11,12 @@ namespace ClientRegistrationProgram
         public CustomerApp()
         {
             InitializeComponent();
+            ClientDatabase.Init();
             _clientManager = new ClientDataManager(CustomerDataGridView);
             _clientManager.SetupDataGrid();
             _clientManager.ChangeAdminState(AdminCheckBox.Checked);
             _clientManager.ChangeSignedInState(SignedInCheckBocx.Checked);
-            ClientDatabase.Init();
+            
         }
 
         private void AddButton_Click(object sender, EventArgs e)

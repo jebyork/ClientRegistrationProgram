@@ -92,11 +92,11 @@ namespace ClientRegistrationProgram
                     command.Parameters.AddWithValue("@address", clientData.Address);
                     command.Parameters.AddWithValue("@phone", clientData.PhoneNumber);
                     command.Parameters.AddWithValue("@email", clientData.Email);
-                    command.Parameters.AddWithValue("@software", clientData.Software);
-                    command.Parameters.AddWithValue("@computers", clientData.Computers);
-                    command.Parameters.AddWithValue("@games", clientData.Games);
-                    command.Parameters.AddWithValue("@officeTools", clientData.OfficeTools);
-                    command.Parameters.AddWithValue("@accessories", clientData.Accessories);
+                    command.Parameters.AddWithValue("@software", clientData.Software ? 1 : 0);
+                    command.Parameters.AddWithValue("@computers", clientData.Computers ? 1 : 0);
+                    command.Parameters.AddWithValue("@games", clientData.Games ? 1 : 0);
+                    command.Parameters.AddWithValue("@officeTools", clientData.OfficeTools ? 1 : 0);
+                    command.Parameters.AddWithValue("@accessories", clientData.Accessories ? 1 : 0);
                     command.ExecuteNonQuery(); 
                 }
 
