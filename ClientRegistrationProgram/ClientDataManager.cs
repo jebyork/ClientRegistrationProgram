@@ -274,7 +274,7 @@ namespace ClientRegistrationProgram
             BindingList<ClientData> filtered = new BindingList<ClientData>(
                 _clients.Where(
                     client =>
-                        client.Name.Contains(filters.Name) |
+                        client.Name.Contains(filters.Name) &&
                         client.Email.Contains(filters.Email)
                 ).ToList()
             );
