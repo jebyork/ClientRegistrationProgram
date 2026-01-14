@@ -9,41 +9,50 @@ namespace ClientRegistrationProgram
 {
     public static class ClientDatabase
     {
-        private static string CLIEN_DB_FILE = "Clients.sqlite";
-        private static string CLIENT_DATA_SOURCE = "Data Source=Clients.sqlite";
+        // Put DB in a reliable, writable location (per-user AppData)
+        private static readonly string DB_FOLDER =
+            Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+                         "ClientRegistrationProgram");
 
-        public static void Init() 
+        private static readonly string DB_FILE =
+            Path.Combine(DB_FOLDER, "Clients.sqlite");
+
+        private static readonly string CONNECTION_STRING =
+            $"Data Source={DB_FILE}";
+
+        public static void Init()
         {
-            if(!File.Exists(CLIEN_DB_FILE)) {
-                using (var connection = new SqliteConnection(CLIENT_DATA_SOURCE))
-                {
-                    connection.Open();
-                    string createTableQuery = @"
-                        CREATE TABLE IF NOT EXISTS Clients (
-                        ID INTEGER PRIMARY KEY AUTOINCREMENT,
-                        Name TEXT NOT NULL,
-                        Address TEXT NOT NULL,
-                        Phone TEXT NOT NULL,
-                        Email TEXT NOT NULL,
-                        Software INTEGER,
-                        Computers INTEGER,
-                        Games INTEGER,
-                        OfficeTools INTEGER,
-                        Accessories INTEGER);";
+            // Ensure folder exists
+            Directory.CreateDirectory(DB_FOLDER);
 
-                    using(var command = new SqliteCommand(createTableQuery, connection))
-                    {
-                        command.ExecuteNonQuery();
-                    }
-                }
-            }
+            // Opening the connection creates the .sqlite file if it doesn't exist
+            using var connection = new SqliteConnection(CONNECTION_STRING);
+            connection.Open();
+
+            // Always ensure the table exists (even if the file already exists)
+            string createTableQuery = @"
+                CREATE TABLE IF NOT EXISTS Clients (
+                    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+                    Name TEXT NOT NULL,
+                    Address TEXT NOT NULL,
+                    Phone TEXT NOT NULL,
+                    Email TEXT NOT NULL,
+                    Software INTEGER,
+                    Computers INTEGER,
+                    Games INTEGER,
+                    OfficeTools INTEGER,
+                    Accessories INTEGER
+                );";
+
+            using var command = new SqliteCommand(createTableQuery, connection);
+            command.ExecuteNonQuery();
         }
 
         public static List<ClientData> LoadAllClients()
         {
             List<ClientData> clients = new List<ClientData>();
 
-            using (var connection = new SqliteConnection(CLIENT_DATA_SOURCE))
+            using (var connection = new SqliteConnection(CONNECTION_STRING))
             {
                 connection.Open();
 
@@ -80,7 +89,7 @@ namespace ClientRegistrationProgram
 
         public static long InsertClient(ClientData clientData)
         {
-            using(var connection = new SqliteConnection(CLIENT_DATA_SOURCE)) 
+            using(var connection = new SqliteConnection(CONNECTION_STRING)) 
             {
                 connection.Open();
                 string insertQuery = @"INSERT INTO Clients 
@@ -112,7 +121,7 @@ namespace ClientRegistrationProgram
 
         public static void DeleteClient(int clientId)
         {
-            using (var connection = new SqliteConnection(CLIENT_DATA_SOURCE))
+            using (var connection = new SqliteConnection(CONNECTION_STRING))
             {
                 connection.Open();
 
@@ -128,7 +137,7 @@ namespace ClientRegistrationProgram
 
         public static void UpdateClient(ClientData clientData)
         {
-            using (var connection = new SqliteConnection(CLIENT_DATA_SOURCE))
+            using (var connection = new SqliteConnection(CONNECTION_STRING))
             {
                 connection.Open();
 
@@ -163,7 +172,5 @@ namespace ClientRegistrationProgram
                 }
             }
         }
-
-
     }
 }
