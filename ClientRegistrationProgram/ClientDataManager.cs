@@ -265,5 +265,20 @@ namespace ClientRegistrationProgram
 
             return true;
         }
+
+        public void FilterDataGrid(Filters filters)
+        {
+            if (DataGrid == null)
+                return;
+
+            BindingList<ClientData> filtered = new BindingList<ClientData>(
+                _clients.Where(
+                    client =>
+                        client.Name.Contains(filters.Name) |
+                        client.Email.Contains(filters.Email)
+                ).ToList()
+            );
+            DataGrid.DataSource = filtered;
+        }
     }
 }

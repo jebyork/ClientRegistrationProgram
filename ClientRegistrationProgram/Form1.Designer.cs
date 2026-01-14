@@ -47,9 +47,9 @@
             NameInputTxt = new TextBox();
             label1 = new Label();
             CustomerDataGridView = new DataGridView();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             AdminCheckBox = new CheckBox();
             SignedInCheckBocx = new CheckBox();
-            flowLayoutPanel1 = new FlowLayoutPanel();
             DisplayOrganizationTable.SuspendLayout();
             DataInteractionPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)CustomerDataGridView).BeginInit();
@@ -66,11 +66,12 @@
             DisplayOrganizationTable.Controls.Add(flowLayoutPanel1, 0, 1);
             DisplayOrganizationTable.Dock = DockStyle.Fill;
             DisplayOrganizationTable.Location = new Point(0, 0);
+            DisplayOrganizationTable.Margin = new Padding(6);
             DisplayOrganizationTable.Name = "DisplayOrganizationTable";
             DisplayOrganizationTable.RowCount = 2;
             DisplayOrganizationTable.RowStyles.Add(new RowStyle(SizeType.Percent, 90F));
             DisplayOrganizationTable.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
-            DisplayOrganizationTable.Size = new Size(1464, 590);
+            DisplayOrganizationTable.Size = new Size(2700, 1259);
             DisplayOrganizationTable.TabIndex = 0;
             // 
             // DataInteractionPanel
@@ -92,17 +93,19 @@
             DataInteractionPanel.Controls.Add(NameInputTxt);
             DataInteractionPanel.Controls.Add(label1);
             DataInteractionPanel.Dock = DockStyle.Fill;
-            DataInteractionPanel.Location = new Point(3, 3);
+            DataInteractionPanel.Location = new Point(6, 6);
+            DataInteractionPanel.Margin = new Padding(6);
             DataInteractionPanel.Name = "DataInteractionPanel";
-            DataInteractionPanel.Size = new Size(213, 525);
+            DataInteractionPanel.Size = new Size(393, 1121);
             DataInteractionPanel.TabIndex = 0;
             // 
             // RemoveButton
             // 
             RemoveButton.Dock = DockStyle.Top;
-            RemoveButton.Location = new Point(0, 310);
+            RemoveButton.Location = new Point(0, 620);
+            RemoveButton.Margin = new Padding(6);
             RemoveButton.Name = "RemoveButton";
-            RemoveButton.Size = new Size(213, 23);
+            RemoveButton.Size = new Size(393, 49);
             RemoveButton.TabIndex = 17;
             RemoveButton.Text = "Remove";
             RemoveButton.UseVisualStyleBackColor = true;
@@ -111,9 +114,10 @@
             // AddButton
             // 
             AddButton.Dock = DockStyle.Top;
-            AddButton.Location = new Point(0, 287);
+            AddButton.Location = new Point(0, 571);
+            AddButton.Margin = new Padding(6);
             AddButton.Name = "AddButton";
-            AddButton.Size = new Size(213, 23);
+            AddButton.Size = new Size(393, 49);
             AddButton.TabIndex = 16;
             AddButton.Text = "Add";
             AddButton.UseVisualStyleBackColor = true;
@@ -122,10 +126,10 @@
             // AccessoriesAddCheckBox
             // 
             AccessoriesAddCheckBox.Dock = DockStyle.Top;
-            AccessoriesAddCheckBox.Location = new Point(0, 263);
-            AccessoriesAddCheckBox.Margin = new Padding(5);
+            AccessoriesAddCheckBox.Location = new Point(0, 520);
+            AccessoriesAddCheckBox.Margin = new Padding(9, 11, 9, 11);
             AccessoriesAddCheckBox.Name = "AccessoriesAddCheckBox";
-            AccessoriesAddCheckBox.Size = new Size(213, 24);
+            AccessoriesAddCheckBox.Size = new Size(393, 51);
             AccessoriesAddCheckBox.TabIndex = 15;
             AccessoriesAddCheckBox.Text = "Accessories ";
             AccessoriesAddCheckBox.UseVisualStyleBackColor = true;
@@ -133,10 +137,10 @@
             // OfficeToolsAddCheckBox
             // 
             OfficeToolsAddCheckBox.Dock = DockStyle.Top;
-            OfficeToolsAddCheckBox.Location = new Point(0, 239);
-            OfficeToolsAddCheckBox.Margin = new Padding(5);
+            OfficeToolsAddCheckBox.Location = new Point(0, 469);
+            OfficeToolsAddCheckBox.Margin = new Padding(9, 11, 9, 11);
             OfficeToolsAddCheckBox.Name = "OfficeToolsAddCheckBox";
-            OfficeToolsAddCheckBox.Size = new Size(213, 24);
+            OfficeToolsAddCheckBox.Size = new Size(393, 51);
             OfficeToolsAddCheckBox.TabIndex = 14;
             OfficeToolsAddCheckBox.Text = "Office Tools";
             OfficeToolsAddCheckBox.UseVisualStyleBackColor = true;
@@ -144,10 +148,10 @@
             // GamesAddCheckBox
             // 
             GamesAddCheckBox.Dock = DockStyle.Top;
-            GamesAddCheckBox.Location = new Point(0, 215);
-            GamesAddCheckBox.Margin = new Padding(5);
+            GamesAddCheckBox.Location = new Point(0, 418);
+            GamesAddCheckBox.Margin = new Padding(9, 11, 9, 11);
             GamesAddCheckBox.Name = "GamesAddCheckBox";
-            GamesAddCheckBox.Size = new Size(213, 24);
+            GamesAddCheckBox.Size = new Size(393, 51);
             GamesAddCheckBox.TabIndex = 13;
             GamesAddCheckBox.Text = "Games";
             GamesAddCheckBox.UseVisualStyleBackColor = true;
@@ -155,10 +159,10 @@
             // ComputersAddCheckBox
             // 
             ComputersAddCheckBox.Dock = DockStyle.Top;
-            ComputersAddCheckBox.Location = new Point(0, 191);
-            ComputersAddCheckBox.Margin = new Padding(5);
+            ComputersAddCheckBox.Location = new Point(0, 367);
+            ComputersAddCheckBox.Margin = new Padding(9, 11, 9, 11);
             ComputersAddCheckBox.Name = "ComputersAddCheckBox";
-            ComputersAddCheckBox.Size = new Size(213, 24);
+            ComputersAddCheckBox.Size = new Size(393, 51);
             ComputersAddCheckBox.TabIndex = 12;
             ComputersAddCheckBox.Text = "Computers";
             ComputersAddCheckBox.UseVisualStyleBackColor = true;
@@ -166,10 +170,10 @@
             // SoftwareAddCheckBox
             // 
             SoftwareAddCheckBox.Dock = DockStyle.Top;
-            SoftwareAddCheckBox.Location = new Point(0, 167);
-            SoftwareAddCheckBox.Margin = new Padding(5);
+            SoftwareAddCheckBox.Location = new Point(0, 316);
+            SoftwareAddCheckBox.Margin = new Padding(9, 11, 9, 11);
             SoftwareAddCheckBox.Name = "SoftwareAddCheckBox";
-            SoftwareAddCheckBox.Size = new Size(213, 24);
+            SoftwareAddCheckBox.Size = new Size(393, 51);
             SoftwareAddCheckBox.TabIndex = 11;
             SoftwareAddCheckBox.Text = "Software ";
             SoftwareAddCheckBox.UseVisualStyleBackColor = true;
@@ -177,86 +181,88 @@
             // label5
             // 
             label5.Dock = DockStyle.Top;
-            label5.Location = new Point(0, 152);
-            label5.Margin = new Padding(5);
+            label5.Location = new Point(0, 284);
+            label5.Margin = new Padding(9, 11, 9, 11);
             label5.Name = "label5";
-            label5.Size = new Size(213, 15);
+            label5.Size = new Size(393, 32);
             label5.TabIndex = 10;
             label5.Text = "Products:";
             // 
             // EmailInputTxt
             // 
             EmailInputTxt.Dock = DockStyle.Top;
-            EmailInputTxt.Location = new Point(0, 129);
-            EmailInputTxt.Margin = new Padding(5);
+            EmailInputTxt.Location = new Point(0, 245);
+            EmailInputTxt.Margin = new Padding(9, 11, 9, 11);
             EmailInputTxt.Name = "EmailInputTxt";
-            EmailInputTxt.Size = new Size(213, 23);
+            EmailInputTxt.Size = new Size(393, 39);
             EmailInputTxt.TabIndex = 9;
+            EmailInputTxt.TextChanged += EmailInputTxt_TextChanged;
             // 
             // label4
             // 
             label4.Dock = DockStyle.Top;
-            label4.Location = new Point(0, 114);
-            label4.Margin = new Padding(5);
+            label4.Location = new Point(0, 213);
+            label4.Margin = new Padding(9, 11, 9, 11);
             label4.Name = "label4";
-            label4.Size = new Size(213, 15);
+            label4.Size = new Size(393, 32);
             label4.TabIndex = 8;
             label4.Text = "Email:";
             // 
             // NumberInputTxt
             // 
             NumberInputTxt.Dock = DockStyle.Top;
-            NumberInputTxt.Location = new Point(0, 91);
-            NumberInputTxt.Margin = new Padding(5);
+            NumberInputTxt.Location = new Point(0, 174);
+            NumberInputTxt.Margin = new Padding(9, 11, 9, 11);
             NumberInputTxt.Name = "NumberInputTxt";
-            NumberInputTxt.Size = new Size(213, 23);
+            NumberInputTxt.Size = new Size(393, 39);
             NumberInputTxt.TabIndex = 7;
             // 
             // label3
             // 
             label3.Dock = DockStyle.Top;
-            label3.Location = new Point(0, 76);
-            label3.Margin = new Padding(5);
+            label3.Location = new Point(0, 142);
+            label3.Margin = new Padding(9, 11, 9, 11);
             label3.Name = "label3";
-            label3.Size = new Size(213, 15);
+            label3.Size = new Size(393, 32);
             label3.TabIndex = 6;
             label3.Text = "Phone Number:";
             // 
             // AddressInputTxt
             // 
             AddressInputTxt.Dock = DockStyle.Top;
-            AddressInputTxt.Location = new Point(0, 53);
-            AddressInputTxt.Margin = new Padding(5);
+            AddressInputTxt.Location = new Point(0, 103);
+            AddressInputTxt.Margin = new Padding(9, 11, 9, 11);
             AddressInputTxt.Name = "AddressInputTxt";
-            AddressInputTxt.Size = new Size(213, 23);
+            AddressInputTxt.Size = new Size(393, 39);
             AddressInputTxt.TabIndex = 5;
             // 
             // label2
             // 
             label2.Dock = DockStyle.Top;
-            label2.Location = new Point(0, 38);
-            label2.Margin = new Padding(5);
+            label2.Location = new Point(0, 71);
+            label2.Margin = new Padding(9, 11, 9, 11);
             label2.Name = "label2";
-            label2.Size = new Size(213, 15);
+            label2.Size = new Size(393, 32);
             label2.TabIndex = 4;
             label2.Text = "Address:";
             // 
             // NameInputTxt
             // 
             NameInputTxt.Dock = DockStyle.Top;
-            NameInputTxt.Location = new Point(0, 15);
-            NameInputTxt.Margin = new Padding(5);
+            NameInputTxt.Location = new Point(0, 32);
+            NameInputTxt.Margin = new Padding(9, 11, 9, 11);
             NameInputTxt.Name = "NameInputTxt";
-            NameInputTxt.Size = new Size(213, 23);
+            NameInputTxt.Size = new Size(393, 39);
             NameInputTxt.TabIndex = 3;
+            NameInputTxt.TextChanged += NameInputTxt_TextChanged;
             // 
             // label1
             // 
             label1.Dock = DockStyle.Top;
             label1.Location = new Point(0, 0);
-            label1.Margin = new Padding(5);
+            label1.Margin = new Padding(9, 11, 9, 11);
             label1.Name = "label1";
-            label1.Size = new Size(213, 15);
+            label1.Size = new Size(393, 32);
             label1.TabIndex = 2;
             label1.Text = "Name:";
             // 
@@ -264,19 +270,33 @@
             // 
             CustomerDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             CustomerDataGridView.Dock = DockStyle.Fill;
-            CustomerDataGridView.Location = new Point(222, 3);
+            CustomerDataGridView.Location = new Point(411, 6);
+            CustomerDataGridView.Margin = new Padding(6);
             CustomerDataGridView.Name = "CustomerDataGridView";
+            CustomerDataGridView.RowHeadersWidth = 82;
             CustomerDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            CustomerDataGridView.Size = new Size(1239, 525);
+            CustomerDataGridView.Size = new Size(2283, 1121);
             CustomerDataGridView.TabIndex = 1;
             CustomerDataGridView.RowValidated += CustomerDataGridView_RowValidated;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Controls.Add(AdminCheckBox);
+            flowLayoutPanel1.Controls.Add(SignedInCheckBocx);
+            flowLayoutPanel1.Dock = DockStyle.Fill;
+            flowLayoutPanel1.Location = new Point(6, 1139);
+            flowLayoutPanel1.Margin = new Padding(6);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(393, 114);
+            flowLayoutPanel1.TabIndex = 2;
             // 
             // AdminCheckBox
             // 
             AdminCheckBox.AutoSize = true;
-            AdminCheckBox.Location = new Point(3, 3);
+            AdminCheckBox.Location = new Point(6, 6);
+            AdminCheckBox.Margin = new Padding(6);
             AdminCheckBox.Name = "AdminCheckBox";
-            AdminCheckBox.Size = new Size(70, 19);
+            AdminCheckBox.Size = new Size(132, 36);
             AdminCheckBox.TabIndex = 2;
             AdminCheckBox.Text = "IsAdmin";
             AdminCheckBox.UseVisualStyleBackColor = true;
@@ -285,32 +305,24 @@
             // SignedInCheckBocx
             // 
             SignedInCheckBocx.AutoSize = true;
-            SignedInCheckBocx.Location = new Point(79, 3);
+            SignedInCheckBocx.Location = new Point(150, 6);
+            SignedInCheckBocx.Margin = new Padding(6);
             SignedInCheckBocx.Name = "SignedInCheckBocx";
-            SignedInCheckBocx.Size = new Size(80, 19);
+            SignedInCheckBocx.Size = new Size(156, 36);
             SignedInCheckBocx.TabIndex = 3;
             SignedInCheckBocx.Text = "IsSignedIn";
             SignedInCheckBocx.UseVisualStyleBackColor = true;
             SignedInCheckBocx.CheckedChanged += SignedInCheckBocx_CheckedChanged;
             // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Controls.Add(AdminCheckBox);
-            flowLayoutPanel1.Controls.Add(SignedInCheckBocx);
-            flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.Location = new Point(3, 534);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(213, 53);
-            flowLayoutPanel1.TabIndex = 2;
-            // 
             // CustomerApp
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1464, 590);
+            ClientSize = new Size(2700, 1259);
             Controls.Add(DisplayOrganizationTable);
-            MaximumSize = new Size(1480, 1000);
-            MinimumSize = new Size(1480, 0);
+            Margin = new Padding(6);
+            MaximumSize = new Size(2726, 2053);
+            MinimumSize = new Size(2726, 71);
             Name = "CustomerApp";
             Text = "CustomerApp";
             DisplayOrganizationTable.ResumeLayout(false);
