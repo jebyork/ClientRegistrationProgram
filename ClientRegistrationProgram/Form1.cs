@@ -8,7 +8,7 @@ namespace ClientRegistrationProgram
 
         Filters _filters;
         ClientDataManager _clientManager;
-
+        bool sortingByName = false;
         public CustomerApp()
         {
             InitializeComponent();
@@ -100,6 +100,14 @@ namespace ClientRegistrationProgram
         {
             _filters.Email = EmailInputTxt.Text;
             _clientManager.FilterDataGrid(_filters);
+        }
+
+
+        private void SortButton_Click(object sender, EventArgs e)
+        {
+            sortingByName = !sortingByName;
+            SortButton.Text = sortingByName ? "Sort by: Name" : "Sort by: ID";
+            _clientManager.SortDataGrid(sortingByName);
         }
     }
 }
