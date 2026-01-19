@@ -50,6 +50,7 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             AdminCheckBox = new CheckBox();
             SignedInCheckBocx = new CheckBox();
+            SortButton = new Button();
             DisplayOrganizationTable.SuspendLayout();
             DataInteractionPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)CustomerDataGridView).BeginInit();
@@ -76,6 +77,7 @@
             // 
             // DataInteractionPanel
             // 
+            DataInteractionPanel.Controls.Add(SortButton);
             DataInteractionPanel.Controls.Add(RemoveButton);
             DataInteractionPanel.Controls.Add(AddButton);
             DataInteractionPanel.Controls.Add(AccessoriesAddCheckBox);
@@ -314,6 +316,17 @@
             SignedInCheckBocx.UseVisualStyleBackColor = true;
             SignedInCheckBocx.CheckedChanged += SignedInCheckBocx_CheckedChanged;
             // 
+            // SortButton
+            // 
+            SortButton.Location = new Point(0, 852);
+            SortButton.Margin = new Padding(6);
+            SortButton.Name = "SortButton";
+            SortButton.Size = new Size(393, 49);
+            SortButton.TabIndex = 18;
+            SortButton.Text = "Sort by: ID";
+            SortButton.UseVisualStyleBackColor = true;
+            SortButton.Click += SortButton_Click;
+            // 
             // CustomerApp
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -358,5 +371,6 @@
         private Button RemoveButton;
         private CheckBox SignedInCheckBocx;
         private FlowLayoutPanel flowLayoutPanel1;
+        private Button SortButton;
     }
 }

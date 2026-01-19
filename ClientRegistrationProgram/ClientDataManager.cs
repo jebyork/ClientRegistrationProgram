@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -274,11 +275,29 @@ namespace ClientRegistrationProgram
             BindingList<ClientData> filtered = new BindingList<ClientData>(
                 _clients.Where(
                     client =>
-                        client.Name.Contains(filters.Name) |
+                        client.Name.Contains(filters.Name) &&
                         client.Email.Contains(filters.Email)
                 ).ToList()
             );
             DataGrid.DataSource = filtered;
+        }
+
+        public void SortDataGrid(bool sortByName) 
+        {
+            if (DataGrid == null) 
+                return;
+
+            BindingList<ClientData> sorted;
+
+            if (sortByName)
+            {
+                sorted = new BindingList<ClientData>(_clients.OrderBy(x => x.Name).ToList());
+            }
+            else {
+                sorted = new BindingList<ClientData>(_clients.OrderBy(x => x.ID).ToList());
+            }
+            DataGrid.DataSource = sorted;
+            
         }
     }
 }

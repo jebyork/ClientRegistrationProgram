@@ -11,6 +11,9 @@ namespace ClientRegistrationProgram
         public string Email { get; set; }
         public string Name { get; set; }
 
-        public Filters() { }
+        public Filters() {
+            Email = "";
+            Name = "";
+        }
     }
 }
