@@ -5,7 +5,7 @@ namespace ClientRegistrationProgram
 
         Filters _filters;
         ClientDataManager _clientManager;
-
+        bool sortingByName = false;
         public CustomerApp()
         {
             InitializeComponent();
@@ -106,19 +106,12 @@ namespace ClientRegistrationProgram
             _clientManager.FilterDataGrid(_filters);
         }
 
-        private void CustomerDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        private void SortButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
+            sortingByName = !sortingByName;
+            SortButton.Text = sortingByName ? "Sort by: Name" : "Sort by: ID";
+            _clientManager.SortDataGrid(sortingByName);
         }
     }
 }

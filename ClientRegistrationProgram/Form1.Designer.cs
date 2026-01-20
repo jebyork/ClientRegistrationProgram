@@ -68,8 +68,8 @@ namespace ClientRegistrationProgram
             CustomerDataGridView = new DataGridView();
             flowLayoutPanel1 = new FlowLayoutPanel();
             AdminCheckBox = new CheckBox();
-            SignedInCheckBox = new CheckBox();
-            label12 = new Label();
+            SignedInCheckBocx = new CheckBox();
+            SortButton = new Button();
             DisplayOrganizationTable.SuspendLayout();
             DataInteractionPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)CustomerDataGridView).BeginInit();
@@ -96,12 +96,7 @@ namespace ClientRegistrationProgram
             // 
             // DataInteractionPanel
             // 
-            DataInteractionPanel.Controls.Add(label12);
-            DataInteractionPanel.Controls.Add(label6);
-            DataInteractionPanel.Controls.Add(textBox4);
-            DataInteractionPanel.Controls.Add(textBox3);
-            DataInteractionPanel.Controls.Add(textBox2);
-            DataInteractionPanel.Controls.Add(textBox1);
+            DataInteractionPanel.Controls.Add(SortButton);
             DataInteractionPanel.Controls.Add(RemoveButton);
             DataInteractionPanel.Controls.Add(AddButton);
             DataInteractionPanel.Controls.Add(AccessoriesAddCheckBox);
@@ -389,6 +384,17 @@ namespace ClientRegistrationProgram
             label12.TabIndex = 28;
             label12.Text = "Select a box:";
             // 
+            // SortButton
+            // 
+            SortButton.Location = new Point(0, 852);
+            SortButton.Margin = new Padding(6);
+            SortButton.Name = "SortButton";
+            SortButton.Size = new Size(393, 49);
+            SortButton.TabIndex = 18;
+            SortButton.Text = "Sort by: ID";
+            SortButton.UseVisualStyleBackColor = true;
+            SortButton.Click += SortButton_Click;
+            // 
             // CustomerApp
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -433,11 +439,6 @@ namespace ClientRegistrationProgram
         private Button RemoveButton;
         private CheckBox SignedInCheckBox;
         private FlowLayoutPanel flowLayoutPanel1;
-        private TextBox textBox1;
-        private Label label6;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private Label label12;
+        private Button SortButton;
     }
 }
