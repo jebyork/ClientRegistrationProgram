@@ -1,6 +1,3 @@
-using System.ComponentModel;
-using System.Windows.Forms;
-
 namespace ClientRegistrationProgram
 {
     public partial class CustomerApp : Form
@@ -16,13 +13,20 @@ namespace ClientRegistrationProgram
             _clientManager = new ClientDataManager(CustomerDataGridView);
             _clientManager.SetupDataGrid();
             _clientManager.ChangeAdminState(AdminCheckBox.Checked);
-            _clientManager.ChangeSignedInState(SignedInCheckBocx.Checked);
+            _clientManager.ChangeSignedInState(SignedInCheckBox.Checked);
 
             _filters = new Filters();
         }
 
         private void AddButton_Click(object sender, EventArgs e)
         {
+            // Example usage of the helper from Class2 (RegistrationLogin)
+            string samplePassword = "myPassword123";
+            string passwordHash = AuthService.Hash(samplePassword);
+
+            // Use the hash as needed (example shows MessageBox; replace with real logic)
+            MessageBox.Show($"Password hash: {passwordHash}");
+
             var client = new ClientData
             {
                 Name = NameInputTxt.Text,
@@ -56,14 +60,14 @@ namespace ClientRegistrationProgram
 
         private void SignedInCheckBocx_CheckedChanged(object sender, EventArgs e)
         {
-            _clientManager.ChangeSignedInState(SignedInCheckBocx.Checked);
+            _clientManager.ChangeSignedInState(SignedInCheckBox.Checked);
         }
 
         private void CustomerDataGridView_RowValidated(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex < 0) return;
 
-            if (!SignedInCheckBocx.Checked || !AdminCheckBox.Checked)
+            if (!SignedInCheckBox.Checked || !AdminCheckBox.Checked)
                 return;
 
             var row = CustomerDataGridView.Rows[e.RowIndex];
