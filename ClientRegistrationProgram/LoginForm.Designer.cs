@@ -44,7 +44,6 @@
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(689, 39);
             txtEmail.TabIndex = 2;
-            //txtEmail.TextChanged += txtEmail_TextChanged;
             // 
             // label3
             // 
@@ -85,7 +84,7 @@
             // btnLogin
             // 
             btnLogin.BackColor = SystemColors.ControlDark;
-            btnLogin.Location = new Point(220, 475);
+            btnLogin.Location = new Point(656, 475);
             btnLogin.Name = "btnLogin";
             btnLogin.Size = new Size(150, 46);
             btnLogin.TabIndex = 8;
@@ -111,8 +110,6 @@
             ResumeLayout(false);
             PerformLayout();
         }
-
-        #endregion
 
         private Label label1;
         private Label label2;

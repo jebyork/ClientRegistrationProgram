@@ -16,5 +16,16 @@ namespace ClientRegistrationProgram
         {
             InitializeComponent();
         }
+        internal static void show()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void buttonreg2_Click(object sender, EventArgs e)
+        {
+            CustomerApp registrationForm = new CustomerApp();
+            registrationForm.Show();
+            this.Hide();
+        }
     }
 }
