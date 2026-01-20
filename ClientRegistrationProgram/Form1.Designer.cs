@@ -1,4 +1,7 @@
-﻿namespace ClientRegistrationProgram
+﻿using System.Drawing.Text;
+using System.Runtime.CompilerServices;
+
+namespace ClientRegistrationProgram
 {
     partial class CustomerApp
     {
@@ -22,6 +25,17 @@
 
         #region Windows Form Designer generated code
 
+        public void ApplyAuth(bool isAdmin)
+        {
+            // Make sure _clientManager initialized (constructor runs before Program calls this)
+            _clientManager.ChangeAdminState(isAdmin);
+            _clientManager.ChangeSignedInState(true);
+
+            // update the UI checkboxes
+            AdminCheckBox.Checked = isAdmin;
+            SignedInCheckBox.Checked = true;
+        }
+
         /// <summary>
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
@@ -30,6 +44,11 @@
         {
             DisplayOrganizationTable = new TableLayoutPanel();
             DataInteractionPanel = new Panel();
+            label6 = new Label();
+            textBox4 = new TextBox();
+            textBox3 = new TextBox();
+            textBox2 = new TextBox();
+            textBox1 = new TextBox();
             RemoveButton = new Button();
             AddButton = new Button();
             AccessoriesAddCheckBox = new CheckBox();
@@ -49,7 +68,8 @@
             CustomerDataGridView = new DataGridView();
             flowLayoutPanel1 = new FlowLayoutPanel();
             AdminCheckBox = new CheckBox();
-            SignedInCheckBocx = new CheckBox();
+            SignedInCheckBox = new CheckBox();
+            label12 = new Label();
             DisplayOrganizationTable.SuspendLayout();
             DataInteractionPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)CustomerDataGridView).BeginInit();
@@ -76,6 +96,12 @@
             // 
             // DataInteractionPanel
             // 
+            DataInteractionPanel.Controls.Add(label12);
+            DataInteractionPanel.Controls.Add(label6);
+            DataInteractionPanel.Controls.Add(textBox4);
+            DataInteractionPanel.Controls.Add(textBox3);
+            DataInteractionPanel.Controls.Add(textBox2);
+            DataInteractionPanel.Controls.Add(textBox1);
             DataInteractionPanel.Controls.Add(RemoveButton);
             DataInteractionPanel.Controls.Add(AddButton);
             DataInteractionPanel.Controls.Add(AccessoriesAddCheckBox);
@@ -98,6 +124,45 @@
             DataInteractionPanel.Name = "DataInteractionPanel";
             DataInteractionPanel.Size = new Size(393, 1121);
             DataInteractionPanel.TabIndex = 0;
+
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(150, 714);
+            label6.Name = "label6";
+            label6.Size = new Size(73, 32);
+            label6.TabIndex = 22;
+            label6.Text = "Login";
+            label6.Click += label6_Click;
+            // 
+            // textBox4
+            // 
+            textBox4.Location = new Point(0, 1042);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(390, 39);
+            textBox4.TabIndex = 21;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(-6, 965);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(390, 39);
+            textBox3.TabIndex = 20;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(0, 854);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(390, 39);
+            textBox2.TabIndex = 19;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(0, 770);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(390, 39);
+            textBox1.TabIndex = 18;
             // 
             // RemoveButton
             // 
@@ -277,12 +342,13 @@
             CustomerDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             CustomerDataGridView.Size = new Size(2283, 1121);
             CustomerDataGridView.TabIndex = 1;
+            CustomerDataGridView.CellContentClick += CustomerDataGridView_CellContentClick;
             CustomerDataGridView.RowValidated += CustomerDataGridView_RowValidated;
             // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Controls.Add(AdminCheckBox);
-            flowLayoutPanel1.Controls.Add(SignedInCheckBocx);
+            flowLayoutPanel1.Controls.Add(SignedInCheckBox);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(6, 1139);
             flowLayoutPanel1.Margin = new Padding(6);
@@ -296,23 +362,32 @@
             AdminCheckBox.Location = new Point(6, 6);
             AdminCheckBox.Margin = new Padding(6);
             AdminCheckBox.Name = "AdminCheckBox";
-            AdminCheckBox.Size = new Size(132, 36);
+            AdminCheckBox.Size = new Size(116, 36);
             AdminCheckBox.TabIndex = 2;
-            AdminCheckBox.Text = "IsAdmin";
+            AdminCheckBox.Text = "Admin";
             AdminCheckBox.UseVisualStyleBackColor = true;
             AdminCheckBox.CheckedChanged += AdminCheckBox_CheckedChanged;
             // 
             // SignedInCheckBocx
             // 
-            SignedInCheckBocx.AutoSize = true;
-            SignedInCheckBocx.Location = new Point(150, 6);
-            SignedInCheckBocx.Margin = new Padding(6);
-            SignedInCheckBocx.Name = "SignedInCheckBocx";
-            SignedInCheckBocx.Size = new Size(156, 36);
-            SignedInCheckBocx.TabIndex = 3;
-            SignedInCheckBocx.Text = "IsSignedIn";
-            SignedInCheckBocx.UseVisualStyleBackColor = true;
-            SignedInCheckBocx.CheckedChanged += SignedInCheckBocx_CheckedChanged;
+            SignedInCheckBox.AutoSize = true;
+            SignedInCheckBox.Location = new Point(134, 6);
+            SignedInCheckBox.Margin = new Padding(6);
+            SignedInCheckBox.Name = "SignedInCheckBocx";
+            SignedInCheckBox.Size = new Size(94, 36);
+            SignedInCheckBox.TabIndex = 3;
+            SignedInCheckBox.Text = "Staff";
+            SignedInCheckBox.UseVisualStyleBackColor = true;
+            SignedInCheckBox.CheckedChanged += SignedInCheckBocx_CheckedChanged;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(1, 1083);
+            label12.Name = "label12";
+            label12.Size = new Size(148, 32);
+            label12.TabIndex = 28;
+            label12.Text = "Select a box:";
             // 
             // CustomerApp
             // 
@@ -356,7 +431,13 @@
         private Button AddButton;
         private CheckBox AdminCheckBox;
         private Button RemoveButton;
-        private CheckBox SignedInCheckBocx;
+        private CheckBox SignedInCheckBox;
         private FlowLayoutPanel flowLayoutPanel1;
+        private TextBox textBox1;
+        private Label label6;
+        private TextBox textBox4;
+        private TextBox textBox3;
+        private TextBox textBox2;
+        private Label label12;
     }
 }

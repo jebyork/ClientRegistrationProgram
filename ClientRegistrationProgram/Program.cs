@@ -1,17 +1,26 @@
+using System;
+using System.Windows.Forms;
+
 namespace ClientRegistrationProgram
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new CustomerApp());
+
+            using var login = new LoginForm();
+            if (login.ShowDialog() != DialogResult.OK)
+            {
+                // user cancelled or failed to authenticate
+                return;
+            }
+
+            var main = new CustomerApp();
+            // apply role and signed-in state to main form
+            main.ApplyAuth(login.IsAdmin);
+            Application.Run(main);
         }
     }
 }
