@@ -44,11 +44,7 @@ namespace ClientRegistrationProgram
         {
             DisplayOrganizationTable = new TableLayoutPanel();
             DataInteractionPanel = new Panel();
-            label6 = new Label();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            SortButton = new Button();
             RemoveButton = new Button();
             AddButton = new Button();
             AccessoriesAddCheckBox = new CheckBox();
@@ -68,8 +64,12 @@ namespace ClientRegistrationProgram
             CustomerDataGridView = new DataGridView();
             flowLayoutPanel1 = new FlowLayoutPanel();
             AdminCheckBox = new CheckBox();
-            SignedInCheckBocx = new CheckBox();
-            SortButton = new Button();
+            SignedInCheckBox = new CheckBox();
+            label6 = new Label();
+            textBox4 = new TextBox();
+            textBox3 = new TextBox();
+            textBox2 = new TextBox();
+            textBox1 = new TextBox();
             DisplayOrganizationTable.SuspendLayout();
             DataInteractionPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)CustomerDataGridView).BeginInit();
@@ -119,45 +119,17 @@ namespace ClientRegistrationProgram
             DataInteractionPanel.Name = "DataInteractionPanel";
             DataInteractionPanel.Size = new Size(393, 1121);
             DataInteractionPanel.TabIndex = 0;
-
             // 
-            // label6
+            // SortButton
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(150, 714);
-            label6.Name = "label6";
-            label6.Size = new Size(73, 32);
-            label6.TabIndex = 22;
-            label6.Text = "Login";
-            label6.Click += label6_Click;
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(0, 1042);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(390, 39);
-            textBox4.TabIndex = 21;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(-6, 965);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(390, 39);
-            textBox3.TabIndex = 20;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(0, 854);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(390, 39);
-            textBox2.TabIndex = 19;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(0, 770);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(390, 39);
-            textBox1.TabIndex = 18;
+            SortButton.Location = new Point(0, 753);
+            SortButton.Margin = new Padding(6);
+            SortButton.Name = "SortButton";
+            SortButton.Size = new Size(393, 49);
+            SortButton.TabIndex = 18;
+            SortButton.Text = "Sort by: ID";
+            SortButton.UseVisualStyleBackColor = true;
+            SortButton.Click += SortButton_Click;
             // 
             // RemoveButton
             // 
@@ -337,7 +309,6 @@ namespace ClientRegistrationProgram
             CustomerDataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             CustomerDataGridView.Size = new Size(2283, 1121);
             CustomerDataGridView.TabIndex = 1;
-            CustomerDataGridView.CellContentClick += CustomerDataGridView_CellContentClick;
             CustomerDataGridView.RowValidated += CustomerDataGridView_RowValidated;
             // 
             // flowLayoutPanel1
@@ -363,37 +334,54 @@ namespace ClientRegistrationProgram
             AdminCheckBox.UseVisualStyleBackColor = true;
             AdminCheckBox.CheckedChanged += AdminCheckBox_CheckedChanged;
             // 
-            // SignedInCheckBocx
+            // SignedInCheckBox
             // 
             SignedInCheckBox.AutoSize = true;
             SignedInCheckBox.Location = new Point(134, 6);
             SignedInCheckBox.Margin = new Padding(6);
-            SignedInCheckBox.Name = "SignedInCheckBocx";
+            SignedInCheckBox.Name = "SignedInCheckBox";
             SignedInCheckBox.Size = new Size(94, 36);
             SignedInCheckBox.TabIndex = 3;
             SignedInCheckBox.Text = "Staff";
             SignedInCheckBox.UseVisualStyleBackColor = true;
             SignedInCheckBox.CheckedChanged += SignedInCheckBocx_CheckedChanged;
             // 
-            // label12
+            // label6
             // 
-            label12.AutoSize = true;
-            label12.Location = new Point(1, 1083);
-            label12.Name = "label12";
-            label12.Size = new Size(148, 32);
-            label12.TabIndex = 28;
-            label12.Text = "Select a box:";
+            label6.AutoSize = true;
+            label6.Location = new Point(150, 714);
+            label6.Name = "label6";
+            label6.Size = new Size(73, 32);
+            label6.TabIndex = 22;
+            label6.Text = "Login";
             // 
-            // SortButton
+            // textBox4
             // 
-            SortButton.Location = new Point(0, 852);
-            SortButton.Margin = new Padding(6);
-            SortButton.Name = "SortButton";
-            SortButton.Size = new Size(393, 49);
-            SortButton.TabIndex = 18;
-            SortButton.Text = "Sort by: ID";
-            SortButton.UseVisualStyleBackColor = true;
-            SortButton.Click += SortButton_Click;
+            textBox4.Location = new Point(0, 1042);
+            textBox4.Name = "textBox4";
+            textBox4.Size = new Size(390, 39);
+            textBox4.TabIndex = 21;
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(-6, 965);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(390, 39);
+            textBox3.TabIndex = 20;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(0, 854);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(390, 39);
+            textBox2.TabIndex = 19;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(0, 770);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(390, 39);
+            textBox1.TabIndex = 18;
             // 
             // CustomerApp
             // 
@@ -440,5 +428,11 @@ namespace ClientRegistrationProgram
         private CheckBox SignedInCheckBox;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button SortButton;
+        private Label label6;
+        private TextBox textBox4;
+        private TextBox textBox3;
+        private TextBox textBox2;   
+        private Label label12;
+        private TextBox textBox1;   
     }
 }

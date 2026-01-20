@@ -1,3 +1,5 @@
+using System.Windows.Forms;
+
 namespace ClientRegistrationProgram
 {
     public partial class CustomerApp : Form
@@ -6,6 +8,9 @@ namespace ClientRegistrationProgram
         Filters _filters;
         ClientDataManager _clientManager;
         bool sortingByName = false;
+
+        public object AuthService { get; private set; }
+
         public CustomerApp()
         {
             InitializeComponent();
@@ -20,11 +25,9 @@ namespace ClientRegistrationProgram
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-            // Example usage of the helper from Class2 (RegistrationLogin)
             string samplePassword = "myPassword123";
-            string passwordHash = AuthService.Hash(samplePassword);
+            string passwordHash = ((LoginRegistration)AuthService).GetPasswordHash(samplePassword);
 
-            // Use the hash as needed (example shows MessageBox; replace with real logic)
             MessageBox.Show($"Password hash: {passwordHash}");
 
             var client = new ClientData
